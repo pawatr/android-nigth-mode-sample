@@ -37,13 +37,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        val currentUiMode = newConfig.uiMode and Configuration.UI_MODE_NIGHT_MASK
-        val message = when (currentUiMode) {
+        val message = when (newConfig.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
             Configuration.UI_MODE_NIGHT_NO -> "Changed to day mode"
             Configuration.UI_MODE_NIGHT_YES -> "Changed to night mode"
             else -> "Unknown"
         }
-        Log.d("TESTTEST", message)
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
